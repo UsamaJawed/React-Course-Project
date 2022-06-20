@@ -55,7 +55,7 @@ const ExpenseForm = (props) => {
     event.preventDefault(); //To prevent the behaviour of form submmit and page refresh
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate)
     }
     props.onSaveExpenseData(expenseData);
@@ -63,6 +63,7 @@ const ExpenseForm = (props) => {
     setEnteredTitle('');
     setEnteredDate('');
     setEnteredAmount('');
+    props.onCancel();
   };
 
   return (
@@ -78,7 +79,7 @@ const ExpenseForm = (props) => {
             type="number"
             min="0.01"
             step="0.01"
-            value={enteredAmount} 
+            value={enteredAmount}
             onChange={amountChangeHandler}
           />
         </div>
@@ -88,16 +89,17 @@ const ExpenseForm = (props) => {
             type="date"
             min="2019-01-01"
             max="2022-12-31"
-            value={enteredDate} 
+            value={enteredDate}
             onChange={dateChangeHandler}
           />
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add Expenses</button>
       </div>
-    </form>
-  );
+
+    </form>);
 };
 
 export default ExpenseForm;

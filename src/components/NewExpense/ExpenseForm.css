@@ -24,3 +24,15 @@
 .new-expense__actions {
   text-align: right;
 }
+
+.new-expense__actions.cancel button {
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  margin-right: 10px;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: flex-end;
+}
